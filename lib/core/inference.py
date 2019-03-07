@@ -65,6 +65,7 @@ def get_final_preds(config, batch_heatmaps, center, scale):
                     coords[n][p] += np.sign(diff) * .25
 
     preds = coords.copy()
+    return preds, maxvals
 
     # Transform back
     for i in range(coords.shape[0]):

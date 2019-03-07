@@ -13,7 +13,9 @@ import sys
 
 
 def add_path(path):
+    print(sys.path)
     if path not in sys.path:
+        print('insert {}'.format(path))
         sys.path.insert(0, path)
 
 
