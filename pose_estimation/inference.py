@@ -173,17 +173,18 @@ def main():
     c, s = _box2cs(box, data_numpy.shape[0], data_numpy.shape[1])
     r = 0
 
-    trans = get_affine_transform(c, s, r, config.MODEL.IMAGE_SIZE)
-    print('transform: {}'.format(trans))
-    input = cv2.warpAffine(
-        data_numpy,
-        trans,
-        (int(config.MODEL.IMAGE_SIZE[0]), int(config.MODEL.IMAGE_SIZE[1])),
-        flags=cv2.INTER_LINEAR)
+    #trans = get_affine_transform(c, s, r, config.MODEL.IMAGE_SIZE)
+    #print('transform: {}'.format(trans))
+    #input = cv2.warpAffine(
+        #data_numpy,
+        #trans,
+        #(int(config.MODEL.IMAGE_SIZE[0]), int(config.MODEL.IMAGE_SIZE[1])),
+        #flags=cv2.INTER_LINEAR)
+    input = data_numpy
 
     # vis transformed image
-    cv2.imshow('image', input)
-    cv2.waitKey(3000)
+    #cv2.imshow('image', input)
+    #cv2.waitKey(3000)
 
     transform = transforms.Compose([
         transforms.ToTensor(),
@@ -216,8 +217,8 @@ def main():
                 cv2.circle(image, (x*4, y*4), 2, (255, 0, 0), 2)
 
         # vis result
-        cv2.imshow('res', image)
-        cv2.waitKey(0)
+        #cv2.imshow('res', image)
+        #cv2.waitKey(0)
 
         cv2.imwrite('output.jpg', image)
 

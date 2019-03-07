@@ -61,8 +61,6 @@ def get_affine_transform(center,
                          shift=np.array([0, 0], dtype=np.float32),
                          inv=0):
 
-    return np.array([[1.0, 0.0, 0.0], [0.0, 1.0, 0.0]])
-
     if not isinstance(scale, np.ndarray) and not isinstance(scale, list):
         print(scale)
         scale = np.array([scale, scale])
